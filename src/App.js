@@ -74,7 +74,7 @@ function ShoppingCart() {
 
 function OrderList() {
   return (
-    <div className="order hidden">
+    <div className="order ">
       <ul className="order-lists">
         <ProductOrder />
       </ul>
@@ -99,7 +99,7 @@ function OrderList() {
 
 function IsEmptyCart() {
   return (
-    <div className="empty-cart">
+    <div className="empty-cart hidden">
       <div>
         <img
           src="./assets/images/illustration-empty-cart.svg"

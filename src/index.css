@@ -314,6 +314,10 @@ p {
   filter: brightness(90%);
 }
 
+.empty-cart.hidden {
+  display: none;
+}
+
 .empty-cart {
   padding: 3.2rem;
   text-align: center;
