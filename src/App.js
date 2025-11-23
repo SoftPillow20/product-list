@@ -5,18 +5,18 @@ function App() {
   console.log(data);
 
   return (
-    <main className="grid shopping-component bg-accent">
+    <main className="grid shopping-component">
       <ShoppingList>
         <h2 className="product-title">Desserts</h2>
       </ShoppingList>
-      <div></div>
+      <ShoppingCart />
     </main>
   );
 }
 
 function ShoppingList({ children }) {
   return (
-    <div className="product-list">
+    <div className="shopping-list">
       {children}
       <Products />
     </div>
@@ -60,6 +60,77 @@ function Product({ image, name, category, price }) {
       </p>
     </div>
   );
+}
+
+function ShoppingCart() {
+  return (
+    <div className="shopping-cart bg-light">
+      <h2 className="text-red">Your Cart (0)</h2>
+      <OrderList />
+      <IsEmptyCart />
+    </div>
+  );
+}
+
+function OrderList() {
+  return (
+    <div className="order hidden">
+      <ul className="order-lists">
+        <ProductOrder />
+      </ul>
+      <div className="cost">
+        <p>Order Total</p>
+        <p className="total">$(X)</p>
+      </div>
+      <div className="order-info">
+        <p>
+          <img src="./assets/images/icon-carbon-neutral.svg" alt="tree icon" />
+          <span>
+            This is a <strong>carbon-neutral</strong> delivery
+          </span>
+        </p>
+      </div>
+      <div className="order-btn">
+        <Button>Confirm Order</Button>
+      </div>
+    </div>
+  );
+}
+
+function IsEmptyCart() {
+  return (
+    <div className="empty-cart">
+      <div>
+        <img
+          src="./assets/images/illustration-empty-cart.svg"
+          alt="illustration empty cart"
+        />
+      </div>
+      <p>Your added items will appear here</p>
+    </div>
+  );
+}
+
+function ProductOrder() {
+  return (
+    <li className="product-order">
+      <div>
+        <p className="product-name">Classic Tiramisu</p>
+        <p className="product-pricing-info">
+          <span className="quantity">1x</span>
+          <span className="text-light">@ $7.00</span>
+          <span className="overall-price text-accent">$5.50</span>
+        </p>
+      </div>
+      <button className="icon-btn">
+        <ion-icon className="close-icon" name="close-circle-outline"></ion-icon>
+      </button>
+    </li>
+  );
+}
+
+function Button({ children }) {
+  return <button>{children}</button>;
 }
 
 export default App;
