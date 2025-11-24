@@ -1,16 +1,22 @@
-export default function Product({ image, name, category, price }) {
+import ButtonCart from "./ButtonCart";
+
+export default function Product({
+  image,
+  name,
+  category,
+  price,
+  setQuantityWaffle,
+  quantityWaffle,
+}) {
   return (
     <div className="product">
       <div className="product-img">
         <img src={image} alt={name} />
 
-        <button className="add-product-btn text-dark bg-light">
-          <img
-            src="./assets/images/icon-add-to-cart.svg"
-            alt="add to cart icon"
-          />
-          Add to Cart
-        </button>
+        <ButtonCart
+          setQuantityWaffle={setQuantityWaffle}
+          quantityWaffle={quantityWaffle}
+        />
       </div>
       <p className="product-category text-light">{category}</p>
       <p className="product-name text-dark">{name}</p>
