@@ -1,6 +1,6 @@
-export default function IsEmptyCart() {
+export default function IsEmptyCart({ order }) {
   return (
-    <div className="empty-cart hidden">
+    <div className={`empty-cart ${!order.length ? "" : "hidden"}`}>
       <div>
         <img
           src="./assets/images/illustration-empty-cart.svg"

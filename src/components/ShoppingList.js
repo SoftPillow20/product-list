@@ -2,17 +2,21 @@ import Products from "./Products";
 
 export default function ShoppingList({
   children,
-  data,
+  waffle,
   setQuantityWaffle,
   quantityWaffle,
+  onAddProductOrder,
+  onRemoveProductOrder,
 }) {
   return (
     <div className="shopping-list">
       {children}
       <Products
-        data={data}
+        waffle={waffle}
         setQuantityWaffle={setQuantityWaffle}
         quantityWaffle={quantityWaffle}
+        onAddProductOrder={onAddProductOrder}
+        onRemoveProductOrder={onRemoveProductOrder}
       />
     </div>
   );

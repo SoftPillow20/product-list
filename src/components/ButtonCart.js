@@ -1,31 +1,39 @@
-export default function ButtonCart({ setQuantityWaffle, quantityWaffle }) {
+export default function ButtonCart({
+  setQuantity,
+  quantity,
+  onAddProductOrder,
+  onRemoveProductOrder,
+  product,
+}) {
   function addQuantityWaffle() {
-    setQuantityWaffle((q) => q + 1);
+    setQuantity((q) => q + 1);
+    onAddProductOrder(product);
   }
 
   function removeQuantityWaffle() {
-    if (quantityWaffle >= 0) setQuantityWaffle((q) => q - 1);
+    if (quantity >= 0) setQuantity((q) => q - 1);
+    onRemoveProductOrder(product);
   }
   return (
     <>
-      {quantityWaffle ? (
+      {quantity ? (
         <ButtonControl
           addQuantityWaffle={addQuantityWaffle}
           removeQuantityWaffle={removeQuantityWaffle}
-          productQuantity={quantityWaffle}
+          productQuantity={quantity}
         />
       ) : (
-        <Button setQuantityWaffle={addQuantityWaffle} />
+        <Button setQuantity={addQuantityWaffle} />
       )}
     </>
   );
 }
 
-function Button({ setQuantityWaffle }) {
+function Button({ setQuantity }) {
   return (
     <button
       className="add-product-btn text-dark bg-light"
-      onClick={setQuantityWaffle}
+      onClick={setQuantity}
     >
       <img src="./assets/images/icon-add-to-cart.svg" alt="add to cart icon" />
       Add to Cart

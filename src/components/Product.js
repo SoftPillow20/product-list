@@ -1,12 +1,15 @@
 import ButtonCart from "./ButtonCart";
 
 export default function Product({
+  product,
   image,
   name,
   category,
   price,
-  setQuantityWaffle,
-  quantityWaffle,
+  setQuantity,
+  quantity,
+  onAddProductOrder,
+  onRemoveProductOrder,
 }) {
   return (
     <div className="product">
@@ -14,8 +17,11 @@ export default function Product({
         <img src={image} alt={name} />
 
         <ButtonCart
-          setQuantityWaffle={setQuantityWaffle}
-          quantityWaffle={quantityWaffle}
+          product={product}
+          setQuantity={setQuantity}
+          quantity={quantity}
+          onAddProductOrder={onAddProductOrder}
+          onRemoveProductOrder={onRemoveProductOrder}
         />
       </div>
       <p className="product-category text-light">{category}</p>
