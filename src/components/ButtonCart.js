@@ -7,33 +7,41 @@ export default function ButtonCart({
 }) {
   function addQuantityWaffle() {
     setQuantity((q) => q + 1);
-    onAddProductOrder(product);
   }
 
   function removeQuantityWaffle() {
     if (quantity >= 0) setQuantity((q) => q - 1);
-    onRemoveProductOrder(product);
   }
+
   return (
     <>
       {quantity ? (
         <ButtonControl
+          product={product}
           addQuantityWaffle={addQuantityWaffle}
           removeQuantityWaffle={removeQuantityWaffle}
+          onRemoveProductOrder={onRemoveProductOrder}
           productQuantity={quantity}
         />
       ) : (
-        <Button setQuantity={addQuantityWaffle} />
+        <Button
+          addQuantity={addQuantityWaffle}
+          onAddProductOrder={onAddProductOrder}
+          product={product}
+        />
       )}
     </>
   );
 }
 
-function Button({ setQuantity }) {
+function Button({ addQuantity, onAddProductOrder, product }) {
   return (
     <button
       className="add-product-btn text-dark bg-light"
-      onClick={setQuantity}
+      onClick={() => {
+        addQuantity();
+        onAddProductOrder(product);
+      }}
     >
       <img src="./assets/images/icon-add-to-cart.svg" alt="add to cart icon" />
       Add to Cart
@@ -42,13 +50,21 @@ function Button({ setQuantity }) {
 }
 
 function ButtonControl({
+  product,
   productQuantity,
   removeQuantityWaffle,
   addQuantityWaffle,
+  onRemoveProductOrder,
 }) {
   return (
     <div className="control-order text-light--1 bg-red">
-      <button className="btn-control" onClick={removeQuantityWaffle}>
+      <button
+        className="btn-control"
+        onClick={() => {
+          removeQuantityWaffle();
+          onRemoveProductOrder(product);
+        }}
+      >
         <ion-icon
           className="minus-icon"
           name="remove-circle-outline"

@@ -9,30 +9,19 @@ function App() {
   const waffle = data[0];
   let waffleTotalPrice = quantityWaffle * waffle.price;
   let productTotalPrice = waffleTotalPrice;
+  let totalQuantity = quantityWaffle;
+
+  console.log(totalQuantity);
 
   function addProductOrder(newOrder) {
     // Add product to order array
     setOrder((order) => [...order, newOrder]);
   }
 
-  function removeProductOrder() {
-    setOrder((order) => order.filter((_, i) => i !== quantityWaffle - 1));
+  function removeProductOrder(product) {
+    // Remove product by quantity
+    setOrder((order) => order.filter((o) => o.name !== product.name));
   }
-
-  // function addProductOrderToCart() {
-  // setOrder(() =>
-  //   data.map((d) =>
-  //     dessert.name === d.name
-  //       ? {
-  //           name: dessert.name,
-  //           price: dessert.price,
-  //           quantity,
-  //           totalPrice: dessert.price * quantity,
-  //         }
-  //       : d
-  //   )
-  // );
-  // }
 
   return (
     <main className="grid shopping-component">
@@ -46,10 +35,13 @@ function App() {
         <h2 className="product-title">Desserts</h2>
       </ShoppingList>
       <ShoppingCart
-        order={order}
+        waffle={waffle}
+        setQuantityWaffle={setQuantityWaffle}
+        totalQuantity={totalQuantity}
         quantityWaffle={quantityWaffle}
         waffleTotalPrice={waffleTotalPrice}
         productTotalPrice={productTotalPrice}
+        removeProductOrder={removeProductOrder}
       />
     </main>
   );
