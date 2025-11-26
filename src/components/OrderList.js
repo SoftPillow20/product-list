@@ -29,7 +29,7 @@ export default function OrderList({
       </ul>
       <div className="cost">
         <p>Order Total</p>
-        <p className="total">$({NumberToString(productTotalPrice)})</p>
+        <p className="total">${NumberToString(productTotalPrice)}</p>
       </div>
       <div className="order-info">
         <p>

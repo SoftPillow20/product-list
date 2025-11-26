@@ -14,7 +14,11 @@ export default function Product({
   return (
     <div className="product">
       <div className="product-img">
-        <img src={image} alt={name} />
+        <img
+          className={quantity >= 1 ? "selected" : ""}
+          src={image}
+          alt={name}
+        />
 
         <ButtonCart
           product={product}
