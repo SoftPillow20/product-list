@@ -1,28 +1,28 @@
 export default function ProductOrder({
-  waffle,
-  setQuantityWaffle,
-  quantityWaffle,
-  waffleTotalPrice,
+  product,
+  setQuantity,
+  quantity,
+  totalPrice,
   NumberToString,
   removeProductOrder,
 }) {
   return (
     <li className="product-order">
       <div>
-        <p className="product-name">{waffle.name}</p>
+        <p className="product-name">{product.name}</p>
         <p className="product-pricing-info">
-          <span className="quantity">{quantityWaffle}x</span>
-          <span className="text-light">@ ${NumberToString(waffle.price)}</span>
+          <span className="quantity">{quantity}x</span>
+          <span className="text-light">@ ${NumberToString(product.price)}</span>
           <span className="overall-price text-accent">
-            ${NumberToString(waffleTotalPrice)}
+            ${NumberToString(totalPrice)}
           </span>
         </p>
       </div>
       <button
         className="icon-btn"
         onClick={() => {
-          removeProductOrder(waffle);
-          setQuantityWaffle(0);
+          removeProductOrder(product);
+          setQuantity(0);
         }}
       >
         <ion-icon className="close-icon" name="close-circle-outline"></ion-icon>

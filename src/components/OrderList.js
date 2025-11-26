@@ -18,11 +18,11 @@ export default function OrderList({
     <div className={`order ${totalQuantity >= 1 ? "" : "hidden"}`}>
       <ul className="order-lists">
         <ProductOrder
-          waffle={waffle}
-          setQuantityWaffle={setQuantityWaffle}
+          product={waffle}
+          setQuantity={setQuantityWaffle}
           totalQuantity={totalQuantity}
-          quantityWaffle={quantityWaffle}
-          waffleTotalPrice={waffleTotalPrice}
+          quantity={quantityWaffle}
+          totalPrice={waffleTotalPrice}
           NumberToString={NumberToString}
           removeProductOrder={removeProductOrder}
         />

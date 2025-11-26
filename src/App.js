@@ -11,8 +11,6 @@ function App() {
   let productTotalPrice = waffleTotalPrice;
   let totalQuantity = quantityWaffle;
 
-  console.log(totalQuantity);
-
   function addProductOrder(newOrder) {
     // Add product to order array
     setOrder((order) => [...order, newOrder]);
