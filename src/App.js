@@ -4,27 +4,36 @@ import ShoppingCart from "./components/ShoppingCart";
 import { useState } from "react";
 
 function App() {
-  const [order, setOrder] = useState([]);
+  const [order, setOrder] = useState(data);
   const [quantityWaffle, setQuantityWaffle] = useState(0);
-  const waffle = data[0];
-  let waffleTotalPrice = quantityWaffle * waffle.price;
-  let productTotalPrice = waffleTotalPrice;
   let totalQuantity = quantityWaffle;
 
-  function addProductOrder(newOrder) {
+  function addProductOrder(newOrder, quantity) {
     // Add product to order array
-    setOrder((order) => [...order, newOrder]);
+    setOrder((order) =>
+      order.map((o) =>
+        o.name === newOrder.name
+          ? { ...newOrder, totalPrice: newOrder.price * (quantity + 1) }
+          : o
+      )
+    );
   }
 
-  function removeProductOrder(product) {
+  function removeProductOrder(newOrder) {
     // Remove product by quantity
-    setOrder((order) => order.filter((o) => o.name !== product.name));
+    setOrder((order) =>
+      order.map((o) =>
+        o.name === newOrder.name
+          ? { ...newOrder, totalPrice: newOrder.totalPrice - newOrder.price }
+          : o
+      )
+    );
   }
 
   return (
     <main className="grid shopping-component">
       <ShoppingList
-        waffle={waffle}
+        order={order}
         setQuantityWaffle={setQuantityWaffle}
         quantityWaffle={quantityWaffle}
         onAddProductOrder={addProductOrder}
@@ -33,12 +42,10 @@ function App() {
         <h2 className="product-title">Desserts</h2>
       </ShoppingList>
       <ShoppingCart
-        waffle={waffle}
+        order={order}
         setQuantityWaffle={setQuantityWaffle}
         totalQuantity={totalQuantity}
         quantityWaffle={quantityWaffle}
-        waffleTotalPrice={waffleTotalPrice}
-        productTotalPrice={productTotalPrice}
         removeProductOrder={removeProductOrder}
       />
     </main>

@@ -2,7 +2,7 @@ import Products from "./Products";
 
 export default function ShoppingList({
   children,
-  waffle,
+  order,
   setQuantityWaffle,
   quantityWaffle,
   onAddProductOrder,
@@ -12,7 +12,7 @@ export default function ShoppingList({
     <div className="shopping-list">
       {children}
       <Products
-        waffle={waffle}
+        order={order}
         setQuantityWaffle={setQuantityWaffle}
         quantityWaffle={quantityWaffle}
         onAddProductOrder={onAddProductOrder}

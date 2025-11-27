@@ -2,7 +2,7 @@ import OrderList from "./OrderList";
 import IsEmptyCart from "./IsEmptyCart";
 
 export default function ShoppingCart({
-  waffle,
+  order,
   totalQuantity,
   quantityWaffle,
   waffleTotalPrice,
@@ -14,12 +14,12 @@ export default function ShoppingCart({
     <div className="shopping-cart bg-light">
       <h2 className="text-red">Your Cart ({Number(totalQuantity)})</h2>
       <OrderList
-        waffle={waffle}
+        order={order}
         setQuantityWaffle={setQuantityWaffle}
-        totalQuantity={totalQuantity}
         quantityWaffle={quantityWaffle}
-        waffleTotalPrice={waffleTotalPrice}
-        productTotalPrice={productTotalPrice}
+        totalQuantity={totalQuantity}
+        // waffleTotalPrice={waffleTotalPrice}
+        // productTotalPrice={productTotalPrice}
         removeProductOrder={removeProductOrder}
       />
       <IsEmptyCart totalQuantity={totalQuantity} />

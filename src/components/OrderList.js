@@ -2,14 +2,16 @@ import ProductOrder from "./ProductOrder";
 import Button from "./Button";
 
 export default function OrderList({
-  waffle,
+  order,
   setQuantityWaffle,
   quantityWaffle,
   totalQuantity,
-  waffleTotalPrice,
-  productTotalPrice,
+  // waffleTotalPrice,
+  // productTotalPrice,
   removeProductOrder,
 }) {
+  const waffle = order[0];
+
   function NumberToString(num) {
     return String(num).length >= 3 ? num + "0" : num + ".00";
   }
@@ -22,14 +24,14 @@ export default function OrderList({
           setQuantity={setQuantityWaffle}
           totalQuantity={totalQuantity}
           quantity={quantityWaffle}
-          totalPrice={waffleTotalPrice}
+          totalPrice={waffle.totalPrice}
           NumberToString={NumberToString}
           removeProductOrder={removeProductOrder}
         />
       </ul>
       <div className="cost">
         <p>Order Total</p>
-        <p className="total">${NumberToString(productTotalPrice)}</p>
+        <p className="total">${NumberToString(waffle.totalPrice)}</p>
       </div>
       <div className="order-info">
         <p>

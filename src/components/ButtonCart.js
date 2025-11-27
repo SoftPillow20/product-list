@@ -1,46 +1,47 @@
 export default function ButtonCart({
   setQuantity,
-  quantity,
+  quantityProduct,
   onAddProductOrder,
   onRemoveProductOrder,
   product,
 }) {
   function addQuantityWaffle() {
     setQuantity((q) => q + 1);
+    onAddProductOrder(product, quantityProduct);
   }
 
   function removeQuantityWaffle() {
-    if (quantity >= 0) setQuantity((q) => q - 1);
+    setQuantity((q) => q - 1);
   }
 
   return (
     <>
-      {quantity ? (
+      {quantityProduct ? (
         <ButtonControl
           product={product}
           addQuantityWaffle={addQuantityWaffle}
           removeQuantityWaffle={removeQuantityWaffle}
           onRemoveProductOrder={onRemoveProductOrder}
-          productQuantity={quantity}
+          quantityProduct={quantityProduct}
         />
       ) : (
         <Button
           addQuantity={addQuantityWaffle}
           onAddProductOrder={onAddProductOrder}
           product={product}
+          quantityProduct={quantityProduct}
         />
       )}
     </>
   );
 }
 
-function Button({ addQuantity, onAddProductOrder, product }) {
+function Button({ addQuantity }) {
   return (
     <button
       className="add-product-btn text-dark bg-light"
       onClick={() => {
         addQuantity();
-        onAddProductOrder(product);
       }}
     >
       <img src="./assets/images/icon-add-to-cart.svg" alt="add to cart icon" />
@@ -51,7 +52,7 @@ function Button({ addQuantity, onAddProductOrder, product }) {
 
 function ButtonControl({
   product,
-  productQuantity,
+  quantityProduct,
   removeQuantityWaffle,
   addQuantityWaffle,
   onRemoveProductOrder,
@@ -61,7 +62,7 @@ function ButtonControl({
       <button
         className="btn-control"
         onClick={() => {
-          removeQuantityWaffle();
+          if (quantityProduct >= 1) removeQuantityWaffle();
           onRemoveProductOrder(product);
         }}
       >
@@ -70,7 +71,7 @@ function ButtonControl({
           name="remove-circle-outline"
         ></ion-icon>
       </button>
-      <span>{productQuantity}</span>
+      <span>{quantityProduct}</span>
       <button className="btn-control" onClick={addQuantityWaffle}>
         <ion-icon className="plus-icon" name="add-circle-outline"></ion-icon>
       </button>

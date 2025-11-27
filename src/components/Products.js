@@ -1,13 +1,13 @@
 import Product from "./Product";
 
 export default function Products({
-  waffle,
+  order,
   setQuantityWaffle,
   quantityWaffle,
   onAddProductOrder,
   onRemoveProductOrder,
 }) {
-  // const CremeBrulee = data[1];
+  const waffle = order[0];
 
   return (
     <div className="grid grid-cols-3 products">
@@ -19,7 +19,7 @@ export default function Products({
         price={waffle.price}
         key={waffle.name}
         setQuantity={setQuantityWaffle}
-        quantity={quantityWaffle}
+        quantityProduct={quantityWaffle}
         onAddProductOrder={onAddProductOrder}
         onRemoveProductOrder={onRemoveProductOrder}
       />

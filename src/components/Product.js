@@ -7,7 +7,7 @@ export default function Product({
   category,
   price,
   setQuantity,
-  quantity,
+  quantityProduct,
   onAddProductOrder,
   onRemoveProductOrder,
 }) {
@@ -15,7 +15,7 @@ export default function Product({
     <div className="product">
       <div className="product-img">
         <img
-          className={quantity >= 1 ? "selected" : ""}
+          className={quantityProduct >= 1 ? "selected" : ""}
           src={image}
           alt={name}
         />
@@ -23,7 +23,7 @@ export default function Product({
         <ButtonCart
           product={product}
           setQuantity={setQuantity}
-          quantity={quantity}
+          quantityProduct={quantityProduct}
           onAddProductOrder={onAddProductOrder}
           onRemoveProductOrder={onRemoveProductOrder}
         />
