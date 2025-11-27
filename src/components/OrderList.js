@@ -6,8 +6,6 @@ export default function OrderList({
   setQuantityWaffle,
   quantityWaffle,
   totalQuantity,
-  // waffleTotalPrice,
-  // productTotalPrice,
   removeProductOrder,
 }) {
   const waffle = order[0];

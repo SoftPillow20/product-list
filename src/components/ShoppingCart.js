@@ -5,8 +5,6 @@ export default function ShoppingCart({
   order,
   totalQuantity,
   quantityWaffle,
-  waffleTotalPrice,
-  productTotalPrice,
   removeProductOrder,
   setQuantityWaffle,
 }) {
