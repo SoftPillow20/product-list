@@ -1,4 +1,5 @@
 import Products from "./Products";
+import Product from "./Product";
 
 export default function ShoppingList({
   children,
@@ -8,16 +9,25 @@ export default function ShoppingList({
   onAddProductOrder,
   onRemoveProductOrder,
 }) {
+  const waffle = order[0];
+
   return (
     <div className="shopping-list">
       {children}
-      <Products
-        order={order}
-        setQuantityWaffle={setQuantityWaffle}
-        quantityWaffle={quantityWaffle}
-        onAddProductOrder={onAddProductOrder}
-        onRemoveProductOrder={onRemoveProductOrder}
-      />
+      <Products>
+        <Product
+          product={waffle}
+          image={waffle.image.desktop}
+          name={waffle.name}
+          category={waffle.category}
+          price={waffle.price}
+          key={waffle.name}
+          setQuantity={setQuantityWaffle}
+          quantityProduct={quantityWaffle}
+          onAddProductOrder={onAddProductOrder}
+          onRemoveProductOrder={onRemoveProductOrder}
+        ></Product>
+      </Products>
     </div>
   );
 }

@@ -3,7 +3,7 @@ export default function ProductOrder({
   setQuantity,
   quantity,
   totalPrice,
-  NumberToString,
+  numberToString,
   removeProductOrder,
 }) {
   return (
@@ -12,9 +12,9 @@ export default function ProductOrder({
         <p className="product-name">{product.name}</p>
         <p className="product-pricing-info">
           <span className="quantity">{quantity}x</span>
-          <span className="text-light">@ ${NumberToString(product.price)}</span>
+          <span className="text-light">@ ${numberToString(product.price)}</span>
           <span className="overall-price text-accent">
-            ${NumberToString(totalPrice)}
+            ${numberToString(totalPrice)}
           </span>
         </p>
       </div>

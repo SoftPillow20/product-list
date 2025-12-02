@@ -1,4 +1,4 @@
-import OrderList from "./OrderList";
+import Order from "./Order";
 import IsEmptyCart from "./IsEmptyCart";
 
 export default function ShoppingCart({
@@ -11,13 +11,11 @@ export default function ShoppingCart({
   return (
     <div className="shopping-cart bg-light">
       <h2 className="text-red">Your Cart ({Number(totalQuantity)})</h2>
-      <OrderList
+      <Order
         order={order}
         setQuantityWaffle={setQuantityWaffle}
         quantityWaffle={quantityWaffle}
         totalQuantity={totalQuantity}
-        // waffleTotalPrice={waffleTotalPrice}
-        // productTotalPrice={productTotalPrice}
         removeProductOrder={removeProductOrder}
       />
       <IsEmptyCart totalQuantity={totalQuantity} />
