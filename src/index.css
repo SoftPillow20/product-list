@@ -112,6 +112,10 @@ p {
   color: var(--clr-rose-300);
 }
 
+.text-white {
+  color: #fff;
+}
+
 .text-accent {
   color: var(--clr-rose-400);
 }
@@ -122,6 +126,10 @@ p {
 
 .text-red {
   color: var(--clr-red);
+}
+
+.bg-red {
+  background-color: var(--clr-red);
 }
 
 .bg-dark {
@@ -181,22 +189,43 @@ p {
   font-weight: 600;
 }
 
-.add-product-btn {
+.add-product-btn,
+.product-controller {
   width: 16rem;
-  padding: 1.2rem;
   display: flex;
   justify-content: center;
   gap: 0.6rem;
   font-size: 1.5rem;
   font-weight: 600;
-  border: 1px solid var(--clr-rose-900);
   border-radius: 100px;
   position: absolute;
   bottom: 0%;
   left: 50%;
   transform: translate(-50%, 50%);
-  cursor: pointer;
   transition: color 250ms, border 250ms;
+}
+
+.add-product-btn {
+  padding: 1.2rem;
+  border: 1px solid var(--clr-rose-900);
+  cursor: pointer;
+}
+
+.product-controller {
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  box-shadow: 0 0 0 1px var(--clr-red);
+}
+
+.product-controller > svg {
+  width: 3rem;
+  cursor: pointer;
+}
+
+.product-controller > svg:hover {
+  fill: var(--clr-rose-100);
+  stroke: var(--clr-red);
 }
 
 .add-product-btn:hover {

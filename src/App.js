@@ -9,9 +9,10 @@ import OrderCost from "./components/OrderCost";
 import OrderInfo from "./components/OrderInfo";
 import ProductOrder from "./components/ProductOrder";
 import OrderBtn from "./components/OrderBtn";
+// import { useState } from "react";
 
 function App() {
-  console.log(data);
+  // const [order, setOrder] = useState([]);
 
   return (
     <main className="grid shopping-component">
