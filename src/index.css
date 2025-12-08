@@ -218,12 +218,20 @@ p {
   box-shadow: 0 0 0 1px var(--clr-red);
 }
 
-.product-controller > svg {
+.product-controller > button {
+  display: flex;
+  border: 0;
+  background-color: transparent;
+}
+
+.product-controller > button svg {
+  fill: var(--clr-red);
+  stroke: var(--clr-rose-100);
   width: 3rem;
   cursor: pointer;
 }
 
-.product-controller > svg:hover {
+.product-controller > button svg:hover {
   fill: var(--clr-rose-100);
   stroke: var(--clr-red);
 }

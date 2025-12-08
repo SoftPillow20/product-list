@@ -9,10 +9,53 @@ import OrderCost from "./components/OrderCost";
 import OrderInfo from "./components/OrderInfo";
 import ProductOrder from "./components/ProductOrder";
 import OrderBtn from "./components/OrderBtn";
-// import { useState } from "react";
+import { useState } from "react";
 
 function App() {
-  // const [order, setOrder] = useState([]);
+  const [order, setOrder] = useState(data);
+
+  function onSetOrder(currItem) {
+    setOrder((item) =>
+      item.map((order) =>
+        order.name === currItem
+          ? {
+              name: order.name,
+              price: order.price,
+              totalPrice: order.price,
+              quantity: 1,
+            }
+          : order
+      )
+    );
+  }
+
+  function IncreaseQuantityProduct(currItem) {
+    setOrder((item) =>
+      item.map((order) =>
+        order.name === currItem
+          ? {
+              ...order,
+              totalPrice: order.totalPrice * (order.quantity + 1),
+              quantity: order.quantity + 1,
+            }
+          : order
+      )
+    );
+  }
+
+  function DecreaseQuantityProduct(currItem) {
+    setOrder((item) =>
+      item.map((order) =>
+        order.name === currItem
+          ? {
+              ...order,
+              quantity: order.quantity - 1,
+              totalPrice: order.totalPrice / order.quantity,
+            }
+          : order
+      )
+    );
+  }
 
   return (
     <main className="grid shopping-component">
@@ -20,6 +63,10 @@ function App() {
         <Products>
           {data.map((product) => (
             <Product
+              order={order}
+              onSetOrder={onSetOrder}
+              IncreaseQuantityProduct={IncreaseQuantityProduct}
+              DecreaseQuantityProduct={DecreaseQuantityProduct}
               image={product.image.desktop}
               name={product.name}
               category={product.category}

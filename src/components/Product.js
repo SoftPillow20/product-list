@@ -4,12 +4,21 @@ import ProductInfo from "./ProductInfo";
 import ProductBtnController from "./ProductBtnController";
 import { useState } from "react";
 
-export default function Product({ image, name, category, price }) {
+export default function Product({
+  order,
+  image,
+  name,
+  category,
+  price,
+  onSetOrder,
+  IncreaseQuantityProduct,
+  DecreaseQuantityProduct,
+}) {
   const [selectItem, setSelectItem] = useState(null);
 
   function onSelectedItem(currItem) {
     setSelectItem((prevItem) => (prevItem !== currItem ? currItem : null));
-    console.log(selectItem);
+    onSetOrder(currItem);
   }
 
   return (
@@ -17,7 +26,13 @@ export default function Product({ image, name, category, price }) {
       <ProductImg>
         <img src={image} alt={name} />
         {selectItem ? (
-          <ProductBtnController />
+          <ProductBtnController
+            order={order}
+            setSelectItem={setSelectItem}
+            IncreaseQuantityProduct={IncreaseQuantityProduct}
+            DecreaseQuantityProduct={DecreaseQuantityProduct}
+            productName={name}
+          />
         ) : (
           <ProductBtn onSelectedItem={onSelectedItem} name={name} />
         )}
