@@ -12,8 +12,6 @@ export default function ProductBtnController({
     <div className="product-controller bg-dark text-white">
       <button
         onClick={() => {
-          console.log(currOrder[0].quantity);
-          console.log(currOrder[0].quantity > 1);
           if (currOrder[0].quantity > 1) DecreaseQuantityProduct(productName);
           else setSelectItem(null);
         }}
