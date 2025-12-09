@@ -4,11 +4,8 @@ import Products from "./components/Products";
 import Product from "./components/Product";
 import IsEmptyCart from "./components/IsEmptyCart";
 import ShoppingCart from "./components/ShoppingCart";
-import OrderList from "./components/OrderList";
-import OrderCost from "./components/OrderCost";
-import OrderInfo from "./components/OrderInfo";
-import ProductOrder from "./components/ProductOrder";
-import OrderBtn from "./components/OrderBtn";
+import Order from "./components/Order";
+
 import { useState } from "react";
 
 function App() {
@@ -81,19 +78,6 @@ function App() {
         <IsEmptyCart />
       </ShoppingCart>
     </main>
-  );
-}
-
-function Order() {
-  return (
-    <div className="order ">
-      <OrderList>
-        <ProductOrder />
-      </OrderList>
-      <OrderCost />
-      <OrderInfo />
-      <OrderBtn />
-    </div>
   );
 }
 
