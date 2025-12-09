@@ -32,7 +32,7 @@ function App() {
         order.name === currItem
           ? {
               ...order,
-              totalPrice: order.totalPrice * (order.quantity + 1),
+              totalPrice: order.price * (order.quantity + 1),
               quantity: order.quantity + 1,
             }
           : order
@@ -47,7 +47,7 @@ function App() {
           ? {
               ...order,
               quantity: order.quantity - 1,
-              totalPrice: order.totalPrice / order.quantity,
+              totalPrice: order.totalPrice - order.price,
             }
           : order
       )
