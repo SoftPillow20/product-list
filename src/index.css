@@ -165,11 +165,10 @@ p {
 
 .product .product-img {
   margin-bottom: 3.6rem;
-
+  border-radius: 1.2rem;
   position: relative;
 }
-
-.product img {
+.product-img img {
   border-radius: 1.2rem;
 }
 
@@ -203,6 +202,7 @@ p {
   left: 50%;
   transform: translate(-50%, 50%);
   transition: color 250ms, border 250ms;
+  z-index: 9999;
 }
 
 .add-product-btn {
@@ -218,6 +218,9 @@ p {
   box-shadow: 0 0 0 1px var(--clr-red);
 }
 
+.product-img:has(.product-controller) {
+  box-shadow: 0 0 0 3px var(--clr-red);
+}
 .product-controller > button {
   display: flex;
   border: 0;

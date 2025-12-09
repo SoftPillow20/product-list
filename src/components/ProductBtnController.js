@@ -5,13 +5,13 @@ export default function ProductBtnController({
   setSelectItem,
   order,
 }) {
+  const currOrder = order.filter((item) =>
+    item.name === productName ? item : null
+  );
   return (
     <div className="product-controller bg-dark text-white">
       <button
         onClick={() => {
-          const currOrder = order.filter((item) =>
-            item.name === productName ? item : null
-          );
           console.log(currOrder[0].quantity);
           console.log(currOrder[0].quantity > 1);
           if (currOrder[0].quantity > 1) DecreaseQuantityProduct(productName);
@@ -33,7 +33,7 @@ export default function ProductBtnController({
           />
         </svg>
       </button>
-      1
+      {currOrder[0].quantity}
       <button onClick={() => IncreaseQuantityProduct(productName)}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
