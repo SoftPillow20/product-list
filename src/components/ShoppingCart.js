@@ -1,7 +1,9 @@
-export default function ShoppingCart({ children }) {
+export default function ShoppingCart({ getOrderQuantity, children }) {
   return (
     <div className="shopping-cart bg-light">
-      <h2 className="text-red">Your Cart (0)</h2>
+      <h2 className="text-red">
+        Your Cart ({!getOrderQuantity() ? 0 : getOrderQuantity()})
+      </h2>
       {children}
     </div>
   );

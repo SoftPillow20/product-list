@@ -1,6 +1,6 @@
 export default function IsEmptyCart() {
   return (
-    <div className="empty-cart hidden">
+    <div className="empty-cart">
       <div>
         <img
           src="./assets/images/illustration-empty-cart.svg"

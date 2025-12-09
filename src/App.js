@@ -54,6 +54,14 @@ function App() {
     );
   }
 
+  function getOrderQuantity() {
+    const allOrder = order.reduce(
+      (acc, item) => (item.quantity ? Number(item.quantity) + acc : 0 + acc),
+      0
+    );
+    return allOrder;
+  }
+
   return (
     <main className="grid shopping-component">
       <ShoppingList>
@@ -73,9 +81,8 @@ function App() {
           ))}
         </Products>
       </ShoppingList>
-      <ShoppingCart>
-        <Order />
-        <IsEmptyCart />
+      <ShoppingCart order={order} getOrderQuantity={getOrderQuantity}>
+        {getOrderQuantity() ? <Order order={order} /> : <IsEmptyCart />}
       </ShoppingCart>
     </main>
   );

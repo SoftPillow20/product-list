@@ -12,8 +12,8 @@ export default function ProductBtnController({
     <div className="product-controller bg-dark text-white">
       <button
         onClick={() => {
-          if (currOrder[0].quantity > 1) DecreaseQuantityProduct(productName);
-          else setSelectItem(null);
+          if (currOrder[0].quantity >= 1) DecreaseQuantityProduct(productName);
+          if (currOrder[0].quantity === 1) setSelectItem(null);
         }}
       >
         <svg
