@@ -13,7 +13,7 @@ export default function ProductBtnController({
       <button
         onClick={() => {
           if (currOrder[0].quantity >= 1) DecreaseQuantityProduct(productName);
-          if (currOrder[0].quantity === 1) setSelectItem(null);
+          if (currOrder[0].quantity <= 1) setSelectItem(null);
         }}
       >
         <svg

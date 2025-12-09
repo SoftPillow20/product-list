@@ -3,10 +3,17 @@ export default function ProductOrder({
   productPrice,
   productQuantity,
   productTotalPrice,
+  numToString,
+  setOrder,
 }) {
-  function numToString(num) {
-    return !String(num).includes(".") ? num + ".00" : num + "0";
+  function onResetProduct(product) {
+    setOrder((item) =>
+      item.map((data) =>
+        data.name === product ? { ...data, quantity: 0, totalPrice: 0 } : data
+      )
+    );
   }
+
   return (
     <li className="product-order">
       <div>
@@ -19,7 +26,7 @@ export default function ProductOrder({
           </span>
         </p>
       </div>
-      <button className="icon-btn">
+      <button className="icon-btn" onClick={() => onResetProduct(productName)}>
         <ion-icon className="close-icon" name="close-circle-outline"></ion-icon>
       </button>
     </li>

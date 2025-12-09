@@ -81,8 +81,12 @@ function App() {
           ))}
         </Products>
       </ShoppingList>
-      <ShoppingCart order={order} getOrderQuantity={getOrderQuantity}>
-        {getOrderQuantity() ? <Order order={order} /> : <IsEmptyCart />}
+      <ShoppingCart getOrderQuantity={getOrderQuantity}>
+        {getOrderQuantity() ? (
+          <Order order={order} setOrder={setOrder} />
+        ) : (
+          <IsEmptyCart />
+        )}
       </ShoppingCart>
     </main>
   );

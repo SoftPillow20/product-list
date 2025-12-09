@@ -17,15 +17,24 @@ export default function Product({
   const [selectItem, setSelectItem] = useState(null);
 
   function onSelectedItem(currItem) {
+    if (selectItem) setSelectItem(null);
     setSelectItem((prevItem) => (prevItem !== currItem ? currItem : null));
     onSetOrder(currItem);
+  }
+
+  function unSelectItem(selectedItem) {
+    if (!selectedItem) return false;
+
+    const currOrder = order.find((item) => item.name === selectedItem);
+
+    return currOrder.quantity;
   }
 
   return (
     <div className="product">
       <ProductImg>
         <img src={image} alt={name} />
-        {selectItem ? (
+        {unSelectItem(selectItem) ? (
           <ProductBtnController
             order={order}
             setSelectItem={setSelectItem}
