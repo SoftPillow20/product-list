@@ -8,7 +8,17 @@ export default function Order({ order }) {
   return (
     <div className="order ">
       <OrderList>
-        <ProductOrder />
+        {order.map((item) =>
+          item.quantity ? (
+            <ProductOrder
+              productName={item.name}
+              productPrice={item.price}
+              productQuantity={item.quantity}
+              productTotalPrice={item.totalPrice}
+              key={item.name}
+            />
+          ) : null
+        )}
       </OrderList>
       <OrderCost />
       <OrderInfo />

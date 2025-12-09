@@ -1,12 +1,22 @@
-export default function ProductOrder() {
+export default function ProductOrder({
+  productName,
+  productPrice,
+  productQuantity,
+  productTotalPrice,
+}) {
+  function numToString(num) {
+    return !String(num).includes(".") ? num + ".00" : num + "0";
+  }
   return (
     <li className="product-order">
       <div>
-        <p className="product-name">Classic Tiramisu</p>
+        <p className="product-name">{productName}</p>
         <p className="product-pricing-info">
-          <span className="quantity">1x</span>
-          <span className="text-light">@ $7.00</span>
-          <span className="overall-price text-accent">$5.50</span>
+          <span className="quantity">{productQuantity}x</span>
+          <span className="text-light">@ ${numToString(productPrice)}</span>
+          <span className="overall-price text-accent">
+            ${numToString(productTotalPrice)}
+          </span>
         </p>
       </div>
       <button className="icon-btn">
