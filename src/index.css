@@ -78,6 +78,7 @@ body {
   font-style: normal;
   font-size: 1.6rem;
   background-color: var(--clr-rose-100);
+  position: relative;
 }
 
 p {
@@ -202,7 +203,6 @@ p {
   left: 50%;
   transform: translate(-50%, 50%);
   transition: color 250ms, border 250ms;
-  z-index: 9999;
 }
 
 .add-product-btn {
@@ -260,10 +260,6 @@ p {
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
-}
-
-.order.hidden {
-  display: none;
 }
 
 .product-order {
@@ -354,10 +350,6 @@ p {
   filter: brightness(90%);
 }
 
-.empty-cart.hidden {
-  display: none;
-}
-
 .empty-cart {
   padding: 3.2rem;
   text-align: center;
@@ -376,4 +368,70 @@ p {
 .empty-cart p {
   color: var(--clr-rose-400);
   font-weight: 600;
+}
+
+/* Confirm Modal Order */
+
+.confirm-order-modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(102, 102, 102, 0.5);
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.confirm-order-modal .modal {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  min-width: 55rem;
+  padding: 3.2rem;
+  border-radius: 1.8rem;
+  aspect-ratio: 1;
+}
+
+.modal .order {
+  padding: 1.6rem 2rem;
+  border-radius: 1.4rem;
+  gap: 0;
+  background-color: var(--clr-rose-50);
+}
+
+.modal .order > .cost {
+  padding-block: 2.4rem;
+}
+
+.modal > div {
+  padding-block: 1.2rem;
+}
+
+.modal > h2 {
+  font-size: 3.2rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.modal > p {
+  color: var(--clr-rose-300);
+}
+
+.modal .product-order > div {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.modal .product-order > div > img {
+  width: 3.6em;
+}
+
+.modal > .order-btn {
+  margin-top: auto;
+  padding-top: 3.2rem;
 }

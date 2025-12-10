@@ -4,7 +4,7 @@ import OrderInfo from "./OrderInfo";
 import ProductOrder from "./ProductOrder";
 import OrderBtn from "./OrderBtn";
 
-export default function Order({ order, setOrder }) {
+export default function Order({ order, setOrder, setConfirmOrder }) {
   function numToString(num) {
     return !String(num).includes(".") ? num + ".00" : num + "0";
   }
@@ -28,7 +28,7 @@ export default function Order({ order, setOrder }) {
       </OrderList>
       <OrderCost order={order} numToString={numToString} />
       <OrderInfo />
-      <OrderBtn />
+      <OrderBtn setConfirmOrder={setConfirmOrder} />
     </div>
   );
 }

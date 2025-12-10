@@ -1,7 +1,7 @@
-export default function OrderBtn() {
+export default function OrderBtn({ setConfirmOrder }) {
   return (
     <div className="order-btn">
-      <button>Confirm Order</button>
+      <button onClick={() => setConfirmOrder(true)}>Confirm Order</button>
     </div>
   );
 }

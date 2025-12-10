@@ -10,6 +10,7 @@ import { useState } from "react";
 
 function App() {
   const [order, setOrder] = useState(data);
+  const [confirmOrder, setConfirmOrder] = useState(false);
 
   function onSetOrder(currItem) {
     setOrder((item) =>
@@ -64,6 +65,7 @@ function App() {
 
   return (
     <main className="grid shopping-component">
+      {confirmOrder && <ConfirmOrderModal />}
       <ShoppingList>
         <Products>
           {data.map((product) => (
@@ -83,12 +85,77 @@ function App() {
       </ShoppingList>
       <ShoppingCart getOrderQuantity={getOrderQuantity}>
         {getOrderQuantity() ? (
-          <Order order={order} setOrder={setOrder} />
+          <Order
+            order={order}
+            setOrder={setOrder}
+            setConfirmOrder={setConfirmOrder}
+          />
         ) : (
           <IsEmptyCart />
         )}
       </ShoppingCart>
     </main>
+  );
+}
+
+function ConfirmOrderModal() {
+  return (
+    <div className="confirm-order-modal">
+      <div className="modal">
+        <div>
+          <img
+            src="./assets/images/icon-order-confirmed.svg"
+            alt="order confirmed icon"
+          />
+        </div>
+        <h2>Order Confirmed</h2>
+        <p>We hope you enjoy your food!</p>
+        <div className="order">
+          <ul className="order-lists">
+            <li className="product-order">
+              <div>
+                <img
+                  src="./assets/images/image-macaron-thumbnail.jpg"
+                  alt="macaron thumbnail"
+                />
+                <div>
+                  <p className="product-name">Macaron</p>
+                  <p className="product-pricing-info">
+                    <span className="quantity">1x</span>
+                    <span className="text-light">$7.00</span>
+                  </p>
+                </div>
+              </div>
+              <span className="overall-price">$ 7.00</span>
+            </li>
+            <li className="product-order">
+              <div>
+                <img
+                  src="./assets/images/image-macaron-thumbnail.jpg"
+                  alt="macaron thumbnail"
+                />
+                <div>
+                  <p className="product-name">Macaron</p>
+                  <p className="product-pricing-info">
+                    <span className="quantity">1x</span>
+                    <span className="text-light">$7.00</span>
+                  </p>
+                </div>
+              </div>
+              <span className="overall-price">$ 7.00</span>
+            </li>
+          </ul>
+          <p className="cost">
+            <span>Order Total</span>
+            <span className="total">$(X)</span>
+          </p>
+        </div>
+
+        <div className="order-btn">
+          <button>Start New Order</button>
+        </div>
+      </div>
+    </div>
   );
 }
 
