@@ -63,7 +63,7 @@ Soon : Live site URL
 
 ### Continued development
 
-**Reducing too many small components for less complexity and more developer experience** : As I write the program for this small project, I noticed that I've built too many small components that are not event reused in some other parts of the web application. So, I might do some other small projects to practice my way of writing a program that leans toward readability and developer experience than applying complexity since this type of lesson are only realized through experience.
+**Reducing too many small components for less complexity and more on readability and developer experience** : As I write the program for this small project, I noticed that I've built too many small components that are not even reused in some other parts of the web application. So, I might do some other small projects to practice my way of writing a program that leans toward readability and developer experience than applying complexity since this type of lesson are only realized through experience.
 
 **Progressing through a React.js course** : I'm actually doing a React.js course from Jonas Schmedtmann on Udemy and his course is such a big help for learning and getting some practical advises on things not only about React.js but also programming in general. Right now, I'm on learning Data fetching, custom hooks, etc.
 
