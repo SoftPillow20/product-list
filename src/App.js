@@ -203,7 +203,7 @@ function ConfirmProductOrders({
           <p className="product-name">{productName}</p>
           <p className="product-pricing-info">
             <span className="quantity">{productQuantity}x</span>
-            <span className="text-light">${numToString(productPrice)}</span>
+            <span className="text-light">@${numToString(productPrice)}</span>
           </p>
         </div>
       </div>

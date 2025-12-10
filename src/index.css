@@ -73,6 +73,7 @@ html {
 }
 
 body {
+  min-height: 100%;
   font-family: "Red Hat Text", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
@@ -402,8 +403,18 @@ p {
   padding: 1.6rem 2rem;
   margin-block: 3.2rem;
   border-radius: 1.4rem;
+  scroll-behavior: smooth;
   gap: 0;
   background-color: var(--clr-rose-50);
+}
+
+.modal .order > .order-lists {
+  max-height: 27em;
+  overflow-y: scroll;
+}
+
+.modal .product-order {
+  padding-right: 1.2rem;
 }
 
 .modal .order > .cost {
